@@ -1,4 +1,4 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import ThemeReducer from "./contexts/Theme/ThemeReducer";
 import { IPlaceThemeProvider, PlaceThemeContext } from "./interfaces/theme";
 import Router from "./routes/Router";
@@ -19,15 +19,31 @@ const App = () => {
     setNewTheme(currentTheme.themeType === "light" ? "dark" : "light");
   };
 
+  useEffect(() => {
+    const body = document.body;
+
+    if (currentTheme.themeType == "light") {
+      body.style.backgroundColor = "#fffefb";
+    } else {
+      body.style.backgroundColor = "#0f1626";
+    }
+
+    return () => {
+      body.style.backgroundColor = "";
+    };
+  }, [currentTheme]);
+
   return (
-    <PlaceThemeContext.Provider value={themeContextProviderValue}>
-      <Router />
-      <input
-        type="checkbox"
-        checked={currentTheme.themeType === "dark"}
-        onChange={handleThemeChange}
-      />
-    </PlaceThemeContext.Provider>
+    <div>
+      <PlaceThemeContext.Provider value={themeContextProviderValue}>
+        <Router />
+        <input
+          type="checkbox"
+          checked={currentTheme.themeType === "dark"}
+          onChange={handleThemeChange}
+        />
+      </PlaceThemeContext.Provider>
+    </div>
   );
 };
 
