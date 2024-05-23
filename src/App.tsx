@@ -1,6 +1,8 @@
 import { useReducer } from "react";
 import ThemeReducer from "./contexts/Theme/ThemeReducer";
 import { IPlaceThemeProvider, PlaceThemeContext } from "./interfaces/theme";
+import Router from "./routes/Router";
+
 import "./styles/global.scss";
 
 const App = () => {
@@ -17,10 +19,9 @@ const App = () => {
     setNewTheme(currentTheme.themeType === "light" ? "dark" : "light");
   };
 
-  console.log(currentTheme);
-
   return (
     <PlaceThemeContext.Provider value={themeContextProviderValue}>
+      <Router />
       <input
         type="checkbox"
         checked={currentTheme.themeType === "dark"}
