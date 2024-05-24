@@ -4,10 +4,13 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  Typography,
 } from "@mui/material";
 import { useContext } from "react";
-import MailIcon from "@mui/icons-material/Mail";
 
+import { ISection } from "../interfaces/data";
+import { Sections } from "../data/section-data";
+import IconSelector from "../components/IconSelector";
 import { PlaceThemeContext } from "../interfaces/theme";
 
 import "../styles/components/SideMenu.scss";
@@ -17,14 +20,17 @@ const SideMenu = () => {
 
   return (
     <div className={`SideMenu-container ${themeType}`}>
+      <div className="SideMenu-title">
+        <Typography variant="h6">Developer</Typography>
+      </div>
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text) => (
-          <ListItem key={text} disablePadding>
+        {Sections.map(({ title }: ISection) => (
+          <ListItem key={title} disablePadding>
             <ListItemButton>
               <ListItemIcon>
-                <MailIcon />
+                <IconSelector title={title} />
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={title} />
             </ListItemButton>
           </ListItem>
         ))}
