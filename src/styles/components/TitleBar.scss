@@ -1,0 +1,28 @@
+@import "../dark-variables";
+@import "../light-variables";
+
+@import "../breakpoints";
+@import "../mixins";
+
+.AppBar-container {
+  margin: 5px;
+  border-radius: 10px;
+  left: 0px !important;
+  width: calc(100% - 10px) !important;
+
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+  &.light {
+    background-color: $light-bg-300;
+    color: $light-text-100;
+  }
+
+  &.dark {
+    background-color: $dark-bg-300;
+    color: $dark-text-100;
+  }
+
+  @include md {
+    width: calc(100% - 245px) !important;
+  }
+}

@@ -79,6 +79,7 @@ const App = () => {
                 "& .MuiDrawer-paper": {
                   boxSizing: "border-box",
                   width: drawerWidth,
+                  borderRight: 0,
                 },
               }}
             >
@@ -91,6 +92,7 @@ const App = () => {
                 "& .MuiDrawer-paper": {
                   boxSizing: "border-box",
                   width: drawerWidth,
+                  borderRight: 0,
                 },
               }}
               open

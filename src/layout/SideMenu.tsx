@@ -6,11 +6,17 @@ import {
   ListItemText,
 } from "@mui/material";
 
+import "../styles/components/SideMenu.scss";
+
 import MailIcon from "@mui/icons-material/Mail";
+import { useContext } from "react";
+import { PlaceThemeContext } from "../interfaces/theme";
 
 const SideMenu = () => {
+  const { themeType } = useContext(PlaceThemeContext);
+
   return (
-    <div>
+    <div className={`SideMenu-container ${themeType}`}>
       <List>
         {["Inbox", "Starred", "Send email", "Drafts"].map((text) => (
           <ListItem key={text} disablePadding>

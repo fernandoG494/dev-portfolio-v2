@@ -1,14 +1,21 @@
 import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
 import { ITitleBar } from "../interfaces/layout";
 import ThemeChecker from "../components/ThemeChecker";
+import { PlaceThemeContext } from "../interfaces/theme";
+
+import "../styles/components/TitleBar.scss";
 
 const drawerWidth = 240;
 
 const TitleBar = ({ handleDrawerToggle }: ITitleBar): ReactNode => {
+  const { themeType } = useContext(PlaceThemeContext);
+
   return (
     <AppBar
+      // style={{ width: "calc(100% - 250px)" }}
+      className={`AppBar-container ${themeType}`}
       position="fixed"
       sx={{
         width: { sm: `calc(100% - ${drawerWidth}px)` },
