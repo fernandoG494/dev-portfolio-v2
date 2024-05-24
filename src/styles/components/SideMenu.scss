@@ -6,15 +6,16 @@
 
 .SideMenu-container {
   height: 100%;
-
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 
   &.light {
     background-color: $light-bg-200;
+    color: $light-text-100;
   }
 
   &.dark {
     background-color: $dark-bg-200;
+    color: $dark-text-100;
   }
 
   @include md {
