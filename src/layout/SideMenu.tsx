@@ -5,12 +5,12 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
+import { useContext } from "react";
+import MailIcon from "@mui/icons-material/Mail";
+
+import { PlaceThemeContext } from "../interfaces/theme";
 
 import "../styles/components/SideMenu.scss";
-
-import MailIcon from "@mui/icons-material/Mail";
-import { useContext } from "react";
-import { PlaceThemeContext } from "../interfaces/theme";
 
 const SideMenu = () => {
   const { themeType } = useContext(PlaceThemeContext);

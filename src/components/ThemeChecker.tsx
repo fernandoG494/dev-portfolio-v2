@@ -1,4 +1,5 @@
 import { useContext } from "react";
+
 import { PlaceThemeContext } from "../interfaces/theme";
 
 const ThemeChecker = () => {

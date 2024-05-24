@@ -1,12 +1,12 @@
-import Router from "./routes/Router";
 import { useEffect, useReducer, useState } from "react";
+import { Box, CssBaseline, Drawer } from "@mui/material";
+
+import Router from "./routes/Router";
+import Content from "./layout/Content";
+import TitleBar from "./layout/TitleBar";
+import SideMenu from "./layout/SideMenu";
 import ThemeReducer from "./contexts/Theme/ThemeReducer";
 import { IPlaceThemeProvider, PlaceThemeContext } from "./interfaces/theme";
-
-import { Box, CssBaseline, Drawer } from "@mui/material";
-import SideMenu from "./layout/SideMenu";
-import TitleBar from "./layout/TitleBar";
-import Content from "./layout/Content";
 
 import "./styles/global.scss";
 

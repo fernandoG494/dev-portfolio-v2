@@ -14,8 +14,7 @@ const TitleBar = ({ handleDrawerToggle }: ITitleBar): ReactNode => {
 
   return (
     <AppBar
-      // style={{ width: "calc(100% - 250px)" }}
-      className={`AppBar-container ${themeType}`}
+      className={`Title-container ${themeType}`}
       position="fixed"
       sx={{
         width: { sm: `calc(100% - ${drawerWidth}px)` },
