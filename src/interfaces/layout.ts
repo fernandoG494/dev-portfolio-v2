@@ -5,3 +5,7 @@ export interface ITitleBar {
 export interface ISideMenu {
   handleDrawerClose?: () => void;
 }
+
+export interface LayoutState {
+  actualPage: string;
+}

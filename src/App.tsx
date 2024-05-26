@@ -1,6 +1,8 @@
+import { Provider } from "react-redux";
 import { useEffect, useReducer, useState } from "react";
 import { Box, CssBaseline, Drawer } from "@mui/material";
 
+import store from "./store";
 import Router from "./routes/Router";
 import Content from "./layout/Content";
 import TitleBar from "./layout/TitleBar";
@@ -57,61 +59,63 @@ const App = () => {
   return (
     <div>
       <PlaceThemeContext.Provider value={themeContextProviderValue}>
-        <Box sx={{ display: "flex" }}>
-          <CssBaseline />
-          <TitleBar handleDrawerToggle={handleDrawerToggle} />
-          <Box
-            component="nav"
-            sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-            aria-label="mailbox folders"
-          >
-            <Drawer
-              variant="temporary"
-              open={mobileOpen}
-              onTransitionEnd={handleDrawerTransitionEnd}
-              onClose={handleDrawerClose}
-              ModalProps={{
-                keepMounted: true,
-              }}
+        <Provider store={store}>
+          <Box sx={{ display: "flex" }}>
+            <CssBaseline />
+            <TitleBar handleDrawerToggle={handleDrawerToggle} />
+            <Box
+              component="nav"
+              sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
+              aria-label="mailbox folders"
+            >
+              <Drawer
+                variant="temporary"
+                open={mobileOpen}
+                onTransitionEnd={handleDrawerTransitionEnd}
+                onClose={handleDrawerClose}
+                ModalProps={{
+                  keepMounted: true,
+                }}
+                sx={{
+                  display: { xs: "block", sm: "none" },
+                  "& .MuiDrawer-paper": {
+                    boxSizing: "border-box",
+                    width: drawerWidth,
+                    borderRight: 0,
+                  },
+                }}
+              >
+                <SideMenu handleDrawerClose={handleDrawerClose} />
+              </Drawer>
+              <Drawer
+                variant="permanent"
+                sx={{
+                  display: { xs: "none", sm: "block" },
+                  "& .MuiDrawer-paper": {
+                    boxSizing: "border-box",
+                    width: drawerWidth,
+                    borderRight: 0,
+                  },
+                }}
+                open
+              >
+                <SideMenu />
+              </Drawer>
+            </Box>
+            <Box
+              component="main"
               sx={{
-                display: { xs: "block", sm: "none" },
-                "& .MuiDrawer-paper": {
-                  boxSizing: "border-box",
-                  width: drawerWidth,
-                  borderRight: 0,
-                },
+                flexGrow: 1,
+                p: 3,
+                width: { sm: `calc(100% - ${drawerWidth}px)` },
               }}
             >
-              <SideMenu handleDrawerClose={handleDrawerClose} />
-            </Drawer>
-            <Drawer
-              variant="permanent"
-              sx={{
-                display: { xs: "none", sm: "block" },
-                "& .MuiDrawer-paper": {
-                  boxSizing: "border-box",
-                  width: drawerWidth,
-                  borderRight: 0,
-                },
-              }}
-              open
-            >
-              <SideMenu />
-            </Drawer>
+              <Content>
+                <Router />
+              </Content>
+            </Box>
           </Box>
-          <Box
-            component="main"
-            sx={{
-              flexGrow: 1,
-              p: 3,
-              width: { sm: `calc(100% - ${drawerWidth}px)` },
-            }}
-          >
-            <Content>
-              <Router />
-            </Content>
-          </Box>
-        </Box>
+        </Provider>
       </PlaceThemeContext.Provider>
     </div>
   );
