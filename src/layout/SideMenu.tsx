@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useContext } from "react";
+import { Link } from "react-router-dom";
 
 import { ISection } from "../interfaces/data";
 import { Sections } from "../data/section-data";
@@ -24,15 +25,17 @@ const SideMenu = () => {
         <Typography variant="h6">Developer</Typography>
       </div>
       <List>
-        {Sections.map(({ title }: ISection) => (
-          <ListItem key={title} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                <IconSelector title={title} />
-              </ListItemIcon>
-              <ListItemText primary={title} />
-            </ListItemButton>
-          </ListItem>
+        {Sections.map(({ title, route }: ISection) => (
+          <Link to={route!} className={`Link-wrapper ${themeType}`}>
+            <ListItem key={title} disablePadding>
+              <ListItemButton>
+                <ListItemIcon>
+                  <IconSelector title={title} />
+                </ListItemIcon>
+                <ListItemText primary={title} />
+              </ListItemButton>
+            </ListItem>
+          </Link>
         ))}
       </List>
     </div>

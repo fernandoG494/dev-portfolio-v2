@@ -27,3 +27,15 @@
 .SideMenu-title {
   padding: 10px 50px;
 }
+
+.Link-wrapper {
+  text-decoration: none;
+
+  &.light {
+    color: $light-text-100;
+  }
+
+  &.dark {
+    color: $dark-text-100;
+  }
+}
