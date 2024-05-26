@@ -11,12 +11,13 @@ import { Link } from "react-router-dom";
 
 import { ISection } from "../interfaces/data";
 import { Sections } from "../data/section-data";
+import { ISideMenu } from "../interfaces/layout";
 import IconSelector from "../components/IconSelector";
 import { PlaceThemeContext } from "../interfaces/theme";
 
 import "../styles/components/SideMenu.scss";
 
-const SideMenu = () => {
+const SideMenu = ({ handleDrawerClose }: ISideMenu) => {
   const { themeType } = useContext(PlaceThemeContext);
 
   return (
@@ -26,7 +27,13 @@ const SideMenu = () => {
       </div>
       <List>
         {Sections.map(({ title, route }: ISection) => (
-          <Link to={route!} className={`Link-wrapper ${themeType}`}>
+          <Link
+            to={route!}
+            className={`Link-wrapper ${themeType}`}
+            onClick={() => {
+              if (handleDrawerClose) handleDrawerClose();
+            }}
+          >
             <ListItem key={title} disablePadding>
               <ListItemButton>
                 <ListItemIcon>

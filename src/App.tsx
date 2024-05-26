@@ -82,7 +82,7 @@ const App = () => {
                 },
               }}
             >
-              <SideMenu />
+              <SideMenu handleDrawerClose={handleDrawerClose} />
             </Drawer>
             <Drawer
               variant="permanent"
