@@ -1,11 +1,31 @@
 import { Route, Routes } from "react-router-dom";
 
-import Dashboard from "../pages/AboutMe";
+import AboutMe from "../pages/AboutMe";
+import FrontEndProjects from "../pages/FrontEndProjects";
+import BackEndProjects from "../pages/BackEndProjects";
+import ErrorPage from "../pages/ErrorPage";
 
 const Router = () => {
   return (
     <Routes>
-      <Route path="/" element={<Dashboard />} />
+      <Route path="/" element={<AboutMe />} errorElement={<ErrorPage />} />
+      <Route
+        path="/about-me"
+        element={<AboutMe />}
+        errorElement={<ErrorPage />}
+      />
+      <Route
+        path="/front-projects"
+        element={<FrontEndProjects />}
+        errorElement={<ErrorPage />}
+      />
+      <Route
+        path="/back-projects"
+        element={<BackEndProjects />}
+        errorElement={<ErrorPage />}
+      />
+
+      <Route path="/*" element={<ErrorPage />} />
     </Routes>
   );
 };

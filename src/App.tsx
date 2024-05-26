@@ -57,7 +57,6 @@ const App = () => {
   return (
     <div>
       <PlaceThemeContext.Provider value={themeContextProviderValue}>
-        <Router />
         <Box sx={{ display: "flex" }}>
           <CssBaseline />
           <TitleBar handleDrawerToggle={handleDrawerToggle} />
@@ -109,7 +108,7 @@ const App = () => {
             }}
           >
             <Content>
-              <h1>a</h1>
+              <Router />
             </Content>
           </Box>
         </Box>

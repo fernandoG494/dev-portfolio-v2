@@ -1,0 +1,21 @@
+@import "../dark-variables";
+@import "../light-variables";
+
+@import "../breakpoints";
+@import "../mixins";
+
+.Content-margin {
+  margin-top: 6vh;
+
+  &.light {
+    color: $light-text-100;
+  }
+
+  &.dark {
+    color: $dark-text-100;
+  }
+
+  @include md {
+    margin-top: 9vh;
+  }
+}
