@@ -16,7 +16,7 @@ import { Sections } from "../data/section-data";
 import { ISideMenu } from "../interfaces/layout";
 import IconSelector from "../components/IconSelector";
 import { PlaceThemeContext } from "../interfaces/theme";
-import { setActualPage } from "../store/slices/layoutSlice";
+import { setActualPage, setActualTitle } from "../store/slices/layoutSlice";
 
 import "../styles/components/SideMenu.scss";
 
@@ -37,6 +37,7 @@ const SideMenu = ({ handleDrawerClose }: ISideMenu) => {
             onClick={() => {
               if (handleDrawerClose) handleDrawerClose();
               dispatch(setActualPage(route!));
+              dispatch(setActualTitle(title));
             }}
             key={title}
           >

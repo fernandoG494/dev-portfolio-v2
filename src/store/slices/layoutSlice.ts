@@ -1,8 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-interface LayoutState {
-  actualPage: string;
-}
+import { ILayoutState } from "../../interfaces/redux";
 
 const determineInitialPage = (): string => {
   const currentPath = window.location.pathname;
@@ -11,8 +9,23 @@ const determineInitialPage = (): string => {
   return validPaths.includes(currentPath) ? currentPath : "/";
 };
 
-const initialState: LayoutState = {
+const determineInitialTitle = (): string => {
+  const currentPath = determineInitialPage();
+
+  if (currentPath == "/" || currentPath == "/about-me") {
+    return "About me";
+  } else if (currentPath == "/front-projects") {
+    return "Front end projects";
+  }
+  if (currentPath == "/back-projects") {
+    return "Back end projects";
+  }
+  return "Error page";
+};
+
+const initialState: ILayoutState = {
   actualPage: determineInitialPage(),
+  actualTitle: determineInitialTitle(),
 };
 
 const layoutSlice = createSlice({
@@ -22,8 +35,11 @@ const layoutSlice = createSlice({
     setActualPage(state, action: PayloadAction<string>) {
       state.actualPage = action.payload;
     },
+    setActualTitle(state, action: PayloadAction<string>) {
+      state.actualTitle = action.payload;
+    },
   },
 });
 
-export const { setActualPage } = layoutSlice.actions;
+export const { setActualPage, setActualTitle } = layoutSlice.actions;
 export default layoutSlice.reducer;

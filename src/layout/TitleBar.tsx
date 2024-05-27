@@ -6,11 +6,17 @@ import ThemeChecker from "../components/ThemeChecker";
 import { PlaceThemeContext } from "../interfaces/theme";
 
 import "../styles/components/TitleBar.scss";
+import { useSelector } from "react-redux";
+import { RootState } from "../store";
 
 const drawerWidth = 240;
 
 const TitleBar = ({ handleDrawerToggle }: ITitleBar): ReactNode => {
   const { themeType } = useContext(PlaceThemeContext);
+
+  const actualTitle = useSelector(
+    (state: RootState) => state.layout.actualTitle
+  );
 
   return (
     <AppBar
@@ -32,7 +38,7 @@ const TitleBar = ({ handleDrawerToggle }: ITitleBar): ReactNode => {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" noWrap component="div">
-          Responsive drawer
+          {actualTitle}
         </Typography>
         <div>
           <ThemeChecker />
