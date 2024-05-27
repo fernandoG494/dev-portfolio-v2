@@ -1,0 +1,11 @@
+@import "../dark-variables";
+@import "../light-variables";
+
+.Icon-color {
+  &.light {
+    fill: $light-text-100;
+  }
+  &.dark {
+    fill: $dark-text-100;
+  }
+}
