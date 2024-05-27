@@ -3,9 +3,19 @@
 
 .Icon-color {
   &.light {
-    fill: $light-text-100;
+    fill: $light-text-200;
+    &.active {
+      background-color: $light-primary-100;
+      border-radius: 3px;
+      box-shadow: 0 0 0 5px $light-primary-100;
+    }
   }
   &.dark {
-    fill: $dark-text-100;
+    fill: $dark-text-200;
+    &.active {
+      background-color: $dark-primary-300;
+      border-radius: 3px;
+      box-shadow: 0 0 0 5px $dark-primary-300;
+    }
   }
 }

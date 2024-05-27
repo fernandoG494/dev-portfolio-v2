@@ -13,11 +13,21 @@ const IconSelector = ({ title }: ISection) => {
 
   switch (title) {
     case "About me":
-      return <PersonIcon className={`Icon-color ${themeType}`} />;
+      return (
+        <PersonIcon className={`Icon-color ${themeType} ${true && "active"}`} />
+      );
     case "Front end projects":
-      return <PhonelinkIcon className={`Icon-color ${themeType}`} />;
+      return (
+        <PhonelinkIcon
+          className={`Icon-color ${themeType} ${true && "active"}`}
+        />
+      );
     case "Back end projects":
-      return <StorageIcon className={`Icon-color ${themeType}`} />;
+      return (
+        <StorageIcon
+          className={`Icon-color ${themeType} ${true && "active"}`}
+        />
+      );
   }
 };
 
