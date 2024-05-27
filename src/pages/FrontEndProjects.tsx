@@ -1,5 +1,5 @@
 const FrontEndProjects = () => {
-  return <h1>Fronts</h1>;
+  return <h1></h1>;
 };
 
 export default FrontEndProjects;
