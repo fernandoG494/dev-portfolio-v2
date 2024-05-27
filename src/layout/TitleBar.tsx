@@ -1,13 +1,14 @@
-import { AppBar, IconButton, Toolbar, Typography } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import { useSelector } from "react-redux";
 import { ReactNode, useContext } from "react";
+import MenuIcon from "@mui/icons-material/Menu";
+import { AppBar, IconButton, Stack, Toolbar, Typography } from "@mui/material";
+
+import { RootState } from "../store";
 import { ITitleBar } from "../interfaces/layout";
 import ThemeChecker from "../components/ThemeChecker";
 import { PlaceThemeContext } from "../interfaces/theme";
 
 import "../styles/components/TitleBar.scss";
-import { useSelector } from "react-redux";
-import { RootState } from "../store";
 
 const drawerWidth = 240;
 
@@ -37,12 +38,18 @@ const TitleBar = ({ handleDrawerToggle }: ITitleBar): ReactNode => {
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" noWrap component="div">
-          {actualTitle}
-        </Typography>
-        <div>
+        <Stack
+          className="ContentTitle-wrapper"
+          direction="row"
+          justifyContent="space-between"
+          alignItems="center"
+          spacing={2}
+        >
+          <Typography variant="h6" noWrap component="div">
+            {actualTitle}
+          </Typography>
           <ThemeChecker />
-        </div>
+        </Stack>
       </Toolbar>
     </AppBar>
   );

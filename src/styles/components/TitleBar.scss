@@ -34,3 +34,13 @@
     width: calc(100% - 245px) !important;
   }
 }
+
+.ContentTitle-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  #checker {
+    display: flex;
+  }
+}

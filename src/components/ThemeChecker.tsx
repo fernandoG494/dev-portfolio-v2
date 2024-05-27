@@ -1,6 +1,10 @@
 import { useContext } from "react";
+import { Switch } from "@mui/material";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
 
 import { PlaceThemeContext } from "../interfaces/theme";
+
+import "../styles/components/ThemeChecker.scss";
 
 const ThemeChecker = () => {
   const { themeType, setNewTheme } = useContext(PlaceThemeContext);
@@ -14,11 +18,10 @@ const ThemeChecker = () => {
   };
 
   return (
-    <input
-      type="checkbox"
-      checked={themeType === "dark"}
-      onChange={handleThemeChange}
-    />
+    <span>
+      <DarkModeIcon className="DarkMode-icon" />
+      <Switch checked={themeType === "dark"} onChange={handleThemeChange} />
+    </span>
   );
 };
 
