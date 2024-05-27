@@ -1,5 +1,6 @@
 // src/layout/SideMenu.tsx
 import {
+  Divider,
   List,
   ListItem,
   ListItemButton,
@@ -18,7 +19,7 @@ import IconSelector from "../components/IconSelector";
 import { PlaceThemeContext } from "../interfaces/theme";
 import { setActualPage, setActualTitle } from "../store/slices/layoutSlice";
 
-import "../styles/components/SideMenu.scss";
+import "../styles/layout/SideMenu.scss";
 
 const SideMenu = ({ handleDrawerClose }: ISideMenu) => {
   const { themeType } = useContext(PlaceThemeContext);
@@ -52,6 +53,25 @@ const SideMenu = ({ handleDrawerClose }: ISideMenu) => {
           </Link>
         ))}
       </List>
+      <Divider
+        orientation="horizontal"
+        variant="middle"
+        flexItem
+        sx={{ bgcolor: "#646e74" }}
+      />
+
+      <Typography
+        style={{
+          fontWeight: "lighter",
+          margin: "1vh 2vh",
+          fontSize: "14px",
+          color: "grey",
+          textAlign: "center",
+        }}
+      >
+        This is a on-build page, multiple updates and projects highlights are to
+        come.
+      </Typography>
     </div>
   );
 };
