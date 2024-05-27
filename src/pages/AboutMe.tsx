@@ -132,8 +132,7 @@ const AboutMe = (): ReactNode => {
         <div>
           My journey has led me to specialize in various aspects of web
           development, including security analysis and implementing cutting-edge
-          solutions. Currently, I’m a Software Engineer at Softtek Inc. in
-          Aguascalientes, México.
+          solutions. Currently, I’m based on Aguascalientes, México.
         </div>
 
         <Typography

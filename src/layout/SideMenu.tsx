@@ -28,7 +28,14 @@ const SideMenu = ({ handleDrawerClose }: ISideMenu) => {
   return (
     <div className={`SideMenu-container ${themeType}`}>
       <div className="SideMenu-title">
-        <Typography variant="h6">Developer</Typography>
+        <Typography
+          style={{
+            fontWeight: "600",
+            fontSize: "20px",
+          }}
+        >
+          Developer portfolio
+        </Typography>
       </div>
       <List>
         {Sections.map(({ title, route }: ISection) => (
@@ -69,8 +76,8 @@ const SideMenu = ({ handleDrawerClose }: ISideMenu) => {
           textAlign: "center",
         }}
       >
-        This is a on-build page, multiple updates and projects highlights are to
-        come.
+        This is an on-build page, multiple updates and projects highlights are
+        to come.
       </Typography>
     </div>
   );
