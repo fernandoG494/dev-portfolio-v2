@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useContext } from "react";
 import { ReactSVG } from "react-svg";
 import { Stack, Typography } from "@mui/material";
 
@@ -8,12 +8,27 @@ import NodeLogo from "../assets/svgs/nodedotjs.svg";
 import AngularLogo from "../assets/svgs/angular.svg";
 import TypeScriptLogo from "../assets/svgs/typescript.svg";
 import JavaScriptLogo from "../assets/svgs/javascript.svg";
+import MongoDBLogo from "../assets/svgs/mongodb.svg";
+import LinkedInLogo from "../assets/svgs/linkedin.svg";
+import GitHubLogo from "../assets/svgs/github.svg";
 
 import Profile from "../assets/Profile.jpg";
 
 import "../styles/pages/AboutMe.scss";
+import { Link } from "react-router-dom";
+import { PlaceThemeContext } from "../interfaces/theme";
 
 const AboutMe = (): ReactNode => {
+  const { themeType } = useContext(PlaceThemeContext);
+
+  const linkedInLogoColor = (themeType: string) => {
+    if (themeType == "light") {
+      return "#181717";
+    } else {
+      return "#F9F3ED";
+    }
+  };
+
   return (
     <Stack
       direction={{ xs: "column", sm: "row" }}
@@ -42,7 +57,6 @@ const AboutMe = (): ReactNode => {
               svg.querySelector("path")!.setAttribute("fill", "#F7DF1E");
             }}
           />
-
           <ReactSVG
             src={TypeScriptLogo}
             beforeInjection={(svg) => {
@@ -78,6 +92,13 @@ const AboutMe = (): ReactNode => {
               svg.querySelector("path")!.setAttribute("fill", "#E0234E");
             }}
           />
+          <ReactSVG
+            src={MongoDBLogo}
+            beforeInjection={(svg) => {
+              svg.setAttribute("style", "width: 30px;");
+              svg.querySelector("path")!.setAttribute("fill", "#47A248");
+            }}
+          />
         </Stack>
         <Typography align="center" style={{ marginTop: "20px" }}>
           Ethical hacker badges
@@ -98,6 +119,37 @@ const AboutMe = (): ReactNode => {
             alt="TryHackMe"
             id="THM-band"
           />
+        </Stack>
+
+        <Typography align="center" style={{ marginTop: "20px" }}>
+          Usefull links:
+        </Typography>
+        <Stack
+          spacing={1}
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <Link to="https://github.com/fernandoG494" target="_blank">
+            <ReactSVG
+              src={GitHubLogo}
+              beforeInjection={(svg) => {
+                svg.setAttribute("style", "width: 30px;");
+                svg
+                  .querySelector("path")!
+                  .setAttribute("fill", linkedInLogoColor(themeType));
+              }}
+            />
+          </Link>
+          <Link to="https://www.linkedin.com/in/lfgc/" target="_blank">
+            <ReactSVG
+              src={LinkedInLogo}
+              beforeInjection={(svg) => {
+                svg.setAttribute("style", "width: 30px;");
+                svg.querySelector("path")!.setAttribute("fill", "#0A66C2");
+              }}
+            />
+          </Link>
         </Stack>
       </div>
       <div id="Column-2">
