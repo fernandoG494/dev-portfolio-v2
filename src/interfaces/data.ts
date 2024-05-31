@@ -4,6 +4,7 @@ export interface ISection {
 }
 
 export interface ITechs {
+  background?: string;
   color?: string;
   name: string;
 }
@@ -13,5 +14,6 @@ export interface IProject {
   difficulty?: string;
   technologies: ITechs[];
   title: string;
-  url?: string;
+  url: string;
+  version?: string;
 }

@@ -157,7 +157,8 @@ const AboutMe = (): ReactNode => {
         <h3>Welcome to my developer portfolio!</h3>
         <div>
           I’m Fernando, a passionate Fullstack JavaScript web developer with a
-          preference for front-end technologies.
+          preference for front-end technologies. Currently, I’m based on
+          Aguascalientes, México.
         </div>
         <div>
           Here, you can explore some of the projects I've worked on, primarily
@@ -184,7 +185,7 @@ const AboutMe = (): ReactNode => {
         <div>
           My journey has led me to specialize in various aspects of web
           development, including security analysis and implementing cutting-edge
-          solutions. Currently, I’m based on Aguascalientes, México.
+          solutions.
         </div>
 
         <Typography
@@ -216,7 +217,7 @@ const AboutMe = (): ReactNode => {
           Professional focus
         </Typography>
         <div>
-          My role involves developing secure coding solutions fro components and
+          My role involves developing secure coding solutions for components and
           web content, reviewing vulnerabilities, and ensuring the robustness of
           applications built with React, Angular, Node, and Nest. I've also
           worked on exciting projects for companies like Walmart, Viasat, and

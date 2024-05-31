@@ -1,0 +1,16 @@
+@import "../dark-variables";
+@import "../light-variables";
+
+.Card-wrapper {
+  min-width: 275px;
+  max-width: 340px;
+  margin: 5px;
+
+  &.light {
+    color: $light-text-100;
+  }
+
+  &.dark {
+    color: $dark-text-100;
+  }
+}

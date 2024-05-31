@@ -1,45 +1,51 @@
 import {
-  Box,
   Button,
   Card,
   CardActions,
   CardContent,
   Typography,
 } from "@mui/material";
-import { IProject } from "../interfaces/data";
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-const ProjectCard = ({ title, description, technologies }: IProject) => {
-  console.log(title, description, technologies);
+import Snack from "./Snack";
+import { IProject, ITechs } from "../interfaces/data";
+import { PlaceThemeContext } from "../interfaces/theme";
+import { setActualPage, setActualTitle } from "../store/slices/layoutSlice";
 
-  const bull = (
-    <Box
-      component="span"
-      sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-    >
-      •
-    </Box>
-  );
+import "../styles/components/ProjectCard.scss";
+
+const ProjectCard = ({ title, description, technologies, url }: IProject) => {
+  const dispatcher = useDispatch();
+  const { themeType } = useContext(PlaceThemeContext);
 
   return (
-    <Card sx={{ minWidth: 275, maxWidth: 340 }}>
+    <Card className={`Card-wrapper ${themeType}`}>
       <CardContent>
-        <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          Word of the Day
-        </Typography>
         <Typography variant="h5" component="div">
-          be{bull}nev{bull}o{bull}lent
+          {title}
         </Typography>
-        <Typography sx={{ mb: 1.5 }} color="text.secondary">
-          adjective
-        </Typography>
-        <Typography variant="body2">
-          well meaning and kindly.
-          <br />
-          {'"a benevolent smile"'}
-        </Typography>
+        <Typography sx={{ mb: 1.5 }}>{description}</Typography>
+        {technologies.map((tech: ITechs) => (
+          <Snack
+            key={tech.name}
+            technologie={tech.name}
+            backGroundColor={tech.background}
+            textColor={tech.color}
+          />
+        ))}
       </CardContent>
       <CardActions>
-        <Button size="small">Learn More</Button>
+        <Link
+          to={url}
+          onClick={() => {
+            dispatcher(setActualPage(url));
+            dispatcher(setActualTitle("Back end projects / auth-users"));
+          }}
+        >
+          <Button size="small">Learn More</Button>
+        </Link>
       </CardActions>
     </Card>
   );

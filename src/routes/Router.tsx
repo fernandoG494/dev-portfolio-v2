@@ -4,6 +4,7 @@ import AboutMe from "../pages/AboutMe";
 import FrontEndProjects from "../pages/FrontEndProjects";
 import BackEndProjects from "../pages/BackEndProjects";
 import ErrorPage from "../pages/ErrorPage";
+import AuthUserPage from "../pages/Backends/AuthUserPage";
 
 const Router = () => {
   return (
@@ -24,6 +25,8 @@ const Router = () => {
         element={<BackEndProjects />}
         errorElement={<ErrorPage />}
       />
+
+      <Route path="/back-projects/auth-users" element={<AuthUserPage />} />
 
       <Route path="/*" element={<ErrorPage />} />
     </Routes>
