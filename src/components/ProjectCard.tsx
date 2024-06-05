@@ -22,7 +22,7 @@ const ProjectCard = ({ title, description, technologies, url }: IProject) => {
 
   return (
     <Card className={`Card-wrapper ${themeType}`}>
-      <CardContent>
+      <CardContent className={`CardContent-wrapper ${themeType}`}>
         <Typography variant="h5" component="div">
           {title}
         </Typography>
@@ -36,7 +36,7 @@ const ProjectCard = ({ title, description, technologies, url }: IProject) => {
           />
         ))}
       </CardContent>
-      <CardActions>
+      <CardActions className={`CardActions-wrapper ${themeType}`}>
         <Link
           to={url}
           onClick={() => {
@@ -44,7 +44,9 @@ const ProjectCard = ({ title, description, technologies, url }: IProject) => {
             dispatcher(setActualTitle("Back end projects / auth-users"));
           }}
         >
-          <Button size="small">Learn More</Button>
+          <Button size="small" className={`Link-text ${themeType}`}>
+            Learn More
+          </Button>
         </Link>
       </CardActions>
     </Card>

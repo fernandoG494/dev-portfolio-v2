@@ -14,3 +14,33 @@
     color: $dark-text-100;
   }
 }
+
+.CardContent-wrapper {
+  &.light {
+    background-color: $light-bg-200;
+  }
+
+  &.dark {
+    background-color: $dark-bg-200;
+  }
+}
+
+.CardActions-wrapper {
+  &.light {
+    background-color: $light-bg-300;
+  }
+
+  &.dark {
+    background-color: $dark-bg-300;
+  }
+}
+
+.Link-text {
+  &.light {
+    color: $light-accent-200;
+  }
+
+  &.dark {
+    color: $dark-accent-200;
+  }
+}

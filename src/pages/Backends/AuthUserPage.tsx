@@ -1,12 +1,26 @@
-import { Stack, Typography } from "@mui/material";
+import { Stack, Tooltip, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
+import { ReactSVG } from "react-svg";
 import { setActualPage, setActualTitle } from "../../store/slices/layoutSlice";
+import GitHubLogo from "../../assets/svgs/github.svg";
 
 import "../../styles/pages/Backends/AuthUserPage.scss";
+import { useContext } from "react";
+import { PlaceThemeContext } from "../../interfaces/theme";
 
 const AuthUserPage = () => {
+  const { themeType } = useContext(PlaceThemeContext);
+
+  const linkedInLogoColor = (themeType: string) => {
+    if (themeType == "light") {
+      return "#181717";
+    } else {
+      return "#F9F3ED";
+    }
+  };
+
   const dispatcher = useDispatch();
 
   return (
@@ -30,9 +44,16 @@ const AuthUserPage = () => {
           </Link>
         </Stack>
         <Stack direction="row" alignItems="center" spacing={1}>
-          <p>Github repository: </p>
-          <Link to={"https://github.com/fernandoG494/auth-users.git"}>
-            https://github.com/fernandoG494/auth-users.git
+          <Link to="https://github.com/fernandoG494" target="_blank">
+            <ReactSVG
+              src={GitHubLogo}
+              beforeInjection={(svg) => {
+                svg.setAttribute("style", "width: 30px;");
+                svg
+                  .querySelector("path")!
+                  .setAttribute("fill", linkedInLogoColor(themeType));
+              }}
+            />
           </Link>
         </Stack>
         <Typography variant="h6">Description</Typography>
